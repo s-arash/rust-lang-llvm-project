@@ -715,6 +715,10 @@ Improvements to Clang's diagnostics
 Bug Fixes in This Version
 -------------------------
 
+- Fix crash when attempting to perform parenthesized initialization of an
+  aggregate with a base class with only non-public constructors.
+  (`#62296 <https://github.com/llvm/llvm-project/issues/62296>`_)
+
 Bug Fixes to Compiler Builtins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -816,6 +820,10 @@ Bug Fixes to C++ Support
 
 - Do not hide templated base members introduced via using-decl in derived class
   (useful specially for constrained members). (`#50886 <https://github.com/llvm/llvm-project/issues/50886>`_)
+
+- Fix default member initializers sometimes being ignored when performing
+  parenthesized aggregate initialization of templated types.
+  (`#62266 <https://github.com/llvm/llvm-project/issues/62266>`_)
 
 Concepts Specific Fixes:
 
@@ -1052,6 +1060,7 @@ RISC-V Support
 - Note that the RISC-V Vector C intrinsics are still under development. The RVV
   C Intrinsic Task Group is working towards a ratified v1.0.
 - The rvv-intrinsic-doc provides `compatible headers <https://github.com/riscv-non-isa/rvv-intrinsic-doc/tree/master/auto-generated/rvv-v0p10-compatible-headers>`_ for transition from the previous implemented version to the current (v0.11) version.
+- Clang now supports `v0.11 RVV intrinsics <https://github.com/riscv-non-isa/rvv-intrinsic-doc/tree/v0.11.x>`_.
 
 CUDA/HIP Language Changes in Clang
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
